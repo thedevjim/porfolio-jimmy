@@ -8,25 +8,10 @@ import { motion } from "framer-motion";
  * Features interactive hover effects and glass morphism design
  */
 export default function SocialLinks(): React.JSX.Element {
-  /**
-   * Handle social media link clicks
-   * TODO: Replace with actual social media URLs
-   */
-  const handleSocialClick = (platform: string): void => {
-    // TODO: Replace these placeholder URLs with actual social media profiles
-    // const socialLinks = {
-    //   linkedin: "https://linkedin.com/in/your-profile", // Replace with actual LinkedIn URL
-    //   github: "https://github.com/your-username", // Replace with actual GitHub URL
-    // };
-
-    console.log(`Clicked ${platform} link`);
-
-    // TODO: Uncomment the lines below when URLs are updated
-    // window.open(socialLinks[platform as keyof typeof socialLinks], '_blank');
-
-    // Placeholder alert for now
-    alert(`${platform} link will be implemented soon!`);
-  };
+  const socialLinks = {
+    linkedin: "https://www.linkedin.com/in/jimmy-kharpatoe/",
+    github: "https://github.com/thedevjim",
+  } as const;
 
   return (
     <motion.div
@@ -43,8 +28,10 @@ export default function SocialLinks(): React.JSX.Element {
 
         <div className="space-y-4">
           {/* LinkedIn */}
-          <motion.button
-            onClick={() => handleSocialClick("linkedin")}
+          <motion.a
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02, x: 5 }}
             whileTap={{ scale: 0.98 }}
             className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 flex items-center space-x-4 hover:bg-white/20 transition-all duration-300 group"
@@ -62,11 +49,13 @@ export default function SocialLinks(): React.JSX.Element {
               <h4 className="text-white font-semibold">Let&apos;s Connect</h4>
               <p className="text-gray-400 text-sm">on LinkedIn</p>
             </div>
-          </motion.button>
+          </motion.a>
 
           {/* GitHub */}
-          <motion.button
-            onClick={() => handleSocialClick("github")}
+          <motion.a
+            href={socialLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02, x: 5 }}
             whileTap={{ scale: 0.98 }}
             className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 flex items-center space-x-4 hover:bg-white/20 transition-all duration-300 group"
@@ -82,9 +71,9 @@ export default function SocialLinks(): React.JSX.Element {
             </div>
             <div className="text-left">
               <h4 className="text-white font-semibold">Github</h4>
-              <p className="text-gray-400 text-sm">@CeoJim18</p>
+              <p className="text-gray-400 text-sm">@thedevjim</p>
             </div>
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </motion.div>

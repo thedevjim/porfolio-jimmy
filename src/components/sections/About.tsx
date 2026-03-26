@@ -1,5 +1,6 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
+import { ABOUT_STATS } from "@/data/about-stats";
 import DownloadCVButton from "../ui/download-cv-button";
 
 /**
@@ -52,44 +53,22 @@ export default function About(): React.JSX.Element {
             
             <h4 className="text-2xl md:text-3xl font-bold mb-8 text-center relative z-10">Quick Stats</h4>
             <div className="space-y-4 relative z-10">
-              {/* Stat Card 1 */}
-              <div className="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 rounded-xl p-5 flex items-center gap-5 transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
+              {ABOUT_STATS.map((stat) => (
+                <div
+                  key={stat.id}
+                  className="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 rounded-xl p-5 flex items-center gap-5 transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={stat.iconPath} />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-bold">{stat.value}</div>
+                    <div className="text-white/80 text-sm md:text-base font-medium">{stat.label}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold">3+</div>
-                  <div className="text-white/80 text-sm md:text-base font-medium">Years of Experience</div>
-                </div>
-              </div>
-
-              {/* Stat Card 2 */}
-              <div className="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 rounded-xl p-5 flex items-center gap-5 transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold">25+</div>
-                  <div className="text-white/80 text-sm md:text-base font-medium">Projects Completed</div>
-                </div>
-              </div>
-
-              {/* Stat Card 3 */}
-              <div className="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 rounded-xl p-5 flex items-center gap-5 transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold">25+</div>
-                  <div className="text-white/80 text-sm md:text-base font-medium">Certificates</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

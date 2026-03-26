@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ExternalLink, Award } from "lucide-react";
 import { CERTIFICATES } from "@/data/certificates";
 
+// TODO: change name to credentials and add information about bachelor degree.
+
 /**
  * Certificates tab component for the portfolio section
  * Displays certificate cards with achievements and credentials
